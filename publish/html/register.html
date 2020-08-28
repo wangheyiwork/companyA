@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>注册页面</title><meta name="description" content="京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!"><meta name="Keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东"><!-- 初始化css --><link rel="shortcut icon" href="../resource/img/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="../css/base.css"><!-- register css文件 --><link rel="stylesheet" href="../css/register.css"><script src="../js/jquery.min.js"></script></head><body><!-- header --><div class="header"><div class="w"><a href="index.html"><img src="../resource/img/logo2.png" alt=""> </a><span>欢迎注册</span><h3>已有账号？<a href="login.html">请登陆></a></h3></div></div><div class="w"><!-- registerarea --><div class="registerarea"><div class="reg_form"><ul><li><label for="tel">手机号:</label> <input type="text" class="inp" id="tel"> <span style="display:none" class="error"><i class="error_icon"></i> 手机号码格式不正确，请从新输入 </span><span style="display:none" class="success"><i class="success_icon"></i> 恭喜您输入正确</span></li><li><label for="">用户名:</label> <input type="text" class="inp" id="username"> <span style="display:none" class="error"><i class="error_icon"></i> 用户名必须4-16位字符 </span><span style="display:none" class="error2"><i class="error_icon"></i> 用户名已被注册,请重新输入 </span><span style="display:none" class="success"><i class="success_icon"></i> 用户名可以使用</span></li><li><label for="">登陆密码:</label> <input type="password" class="inp" id="password"> <span style="display:none" class="error"><i class="error_icon"></i> 请输入密码格6-16位任意字符 </span><span style="display:none" class="success"><i class="success_icon"></i> 恭喜您输入正确</span></li><li class="safe">安全程度 <em class="ruo">弱</em> <em class="zhong">中</em> <em class="qiang">强</em></li><li><label for="">确认密码:</label> <input type="password" class="inp" id="repassword"> <span style="display:none" class="error"><i class="error_icon"></i> 密码输入不一致 </span><span style="display:none" class="success"><i class="success_icon"></i> 恭喜您输入正确</span></li><li class="agree"><input type="checkbox">同意协议并注册 <a href="#">《京东用户协议》</a> <span style="display:none" class="error"><i class="error_icon2"></i> 注册需同意协议 </span><span style="display:none" class="success"><i class="success_icon"></i> 恭喜您输入正确</span></li><li><button class="over">完成注册</button></li></ul></div></div><div class="footer"><p class="links">关于我们 | 联系我们 | 联系客服 | 商家入驻 | 营销中心 | 手机京东. | 友情链接 | 销售联盟 | 京东.社区 | 京东.公益 | English Site | Contact U</p><p class="copyright">Copyright©2004-2020 京东JD.com 版权所有</p></div></div><script>//获取输入的电话
+        var $tel = $("#tel");
+        //获取输入的用户名
+        var $username = $("#username");
+        //获取输入的密码
+        var $password = $("#password");
+        //获取输入的确认密码
+        var $repassword = $("#repassword");
+        //获取输入的同意协议板块
+        var $safe = $(".safe");
+        //获取输入同意协议的输入框
+        var $agree = $(".agree input");
+        //获取输注册按钮
+        var $regBtn = $(".over");
+
+
+
+        //手机号码的正则
+        var phoneReg = /^1[3456789]\d{9}$/;
+        //用户名正则，4到16位（字母，数字，下划线，减号）
+        var nameReg = /^[a-zA-Z0-9_-]{4,16}$/;
+
+        //密码长度正则
+        var pwdReg = /^[\S]{6,16}$/;
+        //密码强度的正则
+        //弱：纯数字，纯字母，纯特殊字符
+        var pwdLow = /^(?:\d+|[a-zA-Z]+|[!@#$%^&*]+){6,12}$/;
+        //中：字母+数字，字母+特殊字符，数字+特殊字符
+        var pwdMid = /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;
+        //强：字母+数字+特殊字符 
+        var pwdTop = /^(?![a-zA-z]+$)(?!\d+$)(?![!@#$%^&*]+$)(?![a-zA-z\d]+$)(?![a-zA-z!@#$%^&*]+$)(?![\d!@#$%^&*]+$)[a-zA-Z\d!@#$%^&*]+$/;
+
+        //判断所有信息是否都提交正确，设置了锁
+        var namelock = false;
+        var pwdlock = false;
+        var repwdlock = false;
+        var tellock = false;
+        var isAgree = false;
+
+
+
+
+
+
+        //手机号码离开焦点触发利用正则判断是否正确
+        $tel.blur(function() {
+                if (!phoneReg.test($tel.val())) {
+                    $(this).siblings("span.success").hide();
+                    $(this).siblings("span.error").show();
+                    tellock = false;
+                } else {
+                    $(this).siblings("span.error").hide();
+                    $(this).siblings("span.success").show();
+                    tellock = true;
+                }
+            })
+            //用户名输入离开焦点触发利用正则判断是否正确
+        $username.blur(function() {
+                if (!nameReg.test($username.val())) {
+                    $(this).siblings("span.success").hide();
+                    $(this).siblings("span.error").show();
+                    namelock = false;
+
+                } else {
+                    $(this).siblings("span").hide();
+                    //发送ajax请求检查是否有同名情况
+                    $.get("/jingdongphp/checkusername.php", {
+                            username: $username.val(),
+                        },
+                        (data) => {
+                            if (!data.error) {
+                                console.log(data);
+                                $(this).siblings("span.success").show();
+                                $(this).siblings("span.error2").hide();
+                                $(this).siblings("span.error").hide();
+                                namelock = true;
+
+                            } else {
+                                $(this).siblings("span.error2").show();
+                                $(this).siblings("span.error").hide();
+                                $(this).siblings("span.success").hide();
+                                namelock = false;
+                            }
+                        }, "json")
+
+
+                }
+            })
+            //密码输入离开焦点触发利用正则判断是否正确
+        $password.blur(function() {
+            if (pwdReg.test($password.val())) {
+                $(this).siblings("span.error").hide();
+                $(this).siblings("span.success").show();
+                pwdlock = true;
+
+            } else {
+                $(this).siblings("span.success").hide();
+                $(this).siblings("span.error").show();
+                pwdlock = false;
+            }
+        });
+        //根据用户输入的内容判断密码强度
+        $password.bind('input propertychange', function() {
+
+                $safe.children("em").hide();
+                if (pwdTop.test($password.val())) {
+                    $safe.children("em").show();
+                } else if (pwdMid.test($password.val())) {
+                    $safe.children(".qiang").hide();
+                    $safe.children(".zhong").show();
+                    $safe.children(".ruo").show();
+                } else if (pwdLow.test($password.val())) {
+                    $safe.children(".qiang").hide();
+                    $safe.children(".zhong").hide();
+                    $safe.children(".ruo").show();
+                }
+            })
+            //检查密码再次输入是否一致
+        $repassword.blur(function() {
+                if ($repassword.val() != $password.val()) {
+                    $(this).siblings("span.success").hide();
+                    $(this).siblings("span.error").show();
+                    repwdlock = false;
+
+                } else {
+                    $(this).siblings("span.error").hide();
+                    $(this).siblings("span.success").show();
+                    repwdlock = true;
+
+                }
+            })
+            //须同意协议才能注册
+        $agree.change(function() {
+                isAgree = $(this).is(":checked");
+                if (isAgree) {
+                    $agree.siblings("span.error").hide();
+                } else {
+                    $agree.siblings("span.error").show();
+
+                }
+            })
+            //点击注册按钮，注册用户信息提交到数据库
+        $regBtn.click(function() {
+            if (!(namelock & pwdlock & repwdlock & isAgree)) {
+                alert("未按要求填写！")
+                return;
+
+            }
+            $.post("/jingdongphp/regist.php", {
+                    username: $username.val(),
+                    password: $password.val(),
+                    phone: $tel.val()
+                },
+                (data) => {
+                    if (!data.error) {
+                        console.log(data.msg);
+                        window.location.href = "./tologin.html";
+                    } else {
+                        console.log(data.msg);
+                    }
+                }, "json")
+        })</script></body></html>

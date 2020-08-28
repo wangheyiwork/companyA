@@ -1,0 +1,326 @@
+    .w {
+        width: 1200px;
+        margin: auto;
+        position: relative;
+    }
+    
+    .header {
+        height: 100px;
+        overflow: hidden;
+    }
+    
+    .header img {
+        display: inline-block;
+        margin-left: 100px;
+        width: 170px;
+        height: 60px;
+        margin-top: -21px;
+    }
+    
+    .header span {
+        display: inline-block;
+        font-size: 26px;
+        line-height: 35px;
+        line-height: 100px;
+        color: #333;
+        margin-left: 20px;
+    }
+    
+    .header p {
+        position: absolute;
+        bottom: 10px;
+        right: 150px;
+    }
+    
+    .header p img {
+        width: 18px;
+        height: 14px;
+        margin-bottom: -19px;
+    }
+    
+    .header p a {
+        margin-left: 5px;
+        color: #666;
+        font-size: 14px;
+    }
+    
+    .header p a:hover {
+        text-decoration: underline;
+        color: #c81623;
+    }
+    
+    .notice {
+        width: 100%;
+        background-color: #fff8f0;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    
+    .loginarea {
+        position: relative;
+        height: 475px;
+        width: 100%;
+        background-color: #e93854;
+        background: #e93854 url(../resource/img/loginBg.png) no-repeat center center;
+    }
+    
+    .loginarea .loginpanel {
+        position: absolute;
+        right: 110px;
+        top: 10px;
+        width: 346px;
+        height: 410px;
+        background-color: #fff;
+    }
+    
+    .loginpanel .smallnotice {
+        height: 40px;
+        width: 100%;
+        background-color: #fff8f0;
+        line-height: 40px;
+        text-align: center;
+    }
+    
+    .loginpanel .smallnotice img {
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+    
+    .loginpanel .btn {
+        font-size: 18px;
+        border-bottom: 1px solid #eee;
+        overflow: hidden;
+    }
+    
+    .loginpanel span {
+        float: left;
+        line-height: 55px;
+        color: #eee;
+    }
+    
+    .loginpanel .btn1 {
+        float: left;
+        width: 170px;
+        height: 55px;
+        text-align: center;
+        line-height: 55px;
+        cursor: pointer;
+    }
+    
+    .active {
+        font-weight: bold;
+        color: #e4393c!important;
+    }
+    
+    .loginpanel .btn2 {
+        float: left;
+        width: 170px;
+        height: 55px;
+        text-align: center;
+        line-height: 55px;
+        cursor: pointer;
+    }
+    
+    .loginpanel .code {
+        width: 100%;
+        height: 270px;
+        background: url("../resource/upload/saocode.png") no-repeat center center;
+    }
+    
+    .loginpanel .userInfo {
+        width: 100%;
+        height: 270px;
+        padding: 33px 20px 10px;
+        box-sizing: border-box;
+        position: relative;
+    }
+    
+    .loginpanel .errorMsg {
+        position: absolute;
+        display: none;
+        left: 19px;
+        right: 0;
+        top: 3px;
+        width: 303px;
+        height: 25px;
+        background-color: #ffebeb;
+        border: 1px solid #faccc6;
+        line-height: 25px;
+        color: #e4393c;
+    }
+    
+    .loginpanel .successMsg {
+        display: none;
+        position: absolute;
+        right: 19px;
+        top: 1px;
+        width: 308px;
+        height: 257px;
+        background-color: #fff;
+        line-height: 400px;
+    }
+    
+    .loginpanel .successMsg img {
+        position: absolute;
+        left: 54px;
+        top: 33px;
+        width: 198px;
+        height: 152px;
+    }
+    
+    .loginpanel .successMsg h2 {
+        position: absolute;
+        left: 115px;
+        width: 300px;
+        height: 50px;
+        z-index: 3;
+        font-size: 19px;
+    }
+    
+    .loginpanel .errorMsg i {
+        float: left;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: red;
+        text-align: center;
+        line-height: 11px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 30px;
+        margin: 5px 14px 0 14px;
+    }
+    
+    .loginpanel .userInfo .firstInput {
+        margin-bottom: 20px;
+        border: 1px solid #bdbdbd;
+        height: 38px;
+    }
+    
+    .loginpanel .userInfo .secondInput {
+        border: 1px solid #bdbdbd;
+        height: 38px;
+    }
+    
+    .loginpanel .userInfo .firstInput span {
+        width: 38px;
+        height: 38px;
+        background: url("../resource/img/userImg.png");
+        vertical-align: middle;
+        border-right: 1px solid #bdbdbd;
+        margin-right: 10px;
+    }
+    
+    .loginpanel .userInfo input {
+        width: 250px;
+        height: 38px;
+        border: 0;
+        outline: none;
+    }
+    
+    .loginpanel .userInfo .secondInput span {
+        width: 38px;
+        height: 38px;
+        background: url("../resource/img/pwdImg.png");
+        vertical-align: middle;
+        border-right: 1px solid #bdbdbd;
+        margin-right: 10px;
+    }
+    
+    .forgetpwd {
+        width: 100%;
+        height: 55px;
+        line-height: 55px;
+    }
+    
+    .forgetpwd a {
+        float: right;
+        color: #333;
+    }
+    
+    .forgetpwd a:hover {
+        color: #e4393c;
+    }
+    
+    .loginbtn {
+        width: 100%;
+        height: 33px;
+        background-color: #c81623;
+        line-height: 33px;
+        text-align: center;
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .loginbtn:hover {
+        background-color: red;
+    }
+    
+    .loginlink {
+        width: 100%;
+        height: 45px;
+        background-color: #fcfcfc;
+        padding: 14px;
+        box-sizing: border-box;
+        border-top: 1px solid #eee;
+    }
+    
+    .loginlink span {
+        float: left;
+        width: 18px;
+        height: 18px;
+        background: url("../resource/img/QQ-weixin.png") no-repeat 0 0;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    
+    .loginlink i {
+        float: left;
+        margin-right: 10px;
+    }
+    
+    .loginlink em {
+        float: right;
+        font-size: 16px;
+        color: #c81623;
+        cursor: pointer;
+        line-height: 15px;
+    }
+    
+    .loginlink u {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #e4393c;
+        color: #fff;
+        text-decoration: none;
+        line-height: 15px;
+        text-align: center;
+    }
+    
+    .loginlink span:nth-of-type(1) {
+        background: url("../resource/img/QQ-weixin.png") no-repeat 0 0;
+    }
+    
+    .loginlink span:nth-of-type(2) {
+        background: url("../resource/img/QQ-weixin.png") no-repeat -20px 0;
+    }
+    
+    .footer {
+        height: 120px;
+        text-align: center;
+    }
+    
+    .links {
+        margin-top: 20px;
+        height: 30px;
+        color: #666;
+    }
+    
+    .copyright {
+        line-height: 20px;
+        color: #666;
+    }

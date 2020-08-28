@@ -1,0 +1,1 @@
+"use strict";function getCookie(o){for(var e=document.cookie.split("; "),t=0;t<e.length;t++){var i=e[t].split("=");if(i[0]==o)return i[1]}}function setCookie(o,e){document.cookie=o+"="+e}function clearCookie(o){document.cookie=o+"=22;max-age=-1",console.log("清除了")}

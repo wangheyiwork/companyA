@@ -1,0 +1,440 @@
+/*这个文件里面放的是 首页的样式*/
+
+
+/*nav start*/
+
+.dropdown {
+    width: 190px;
+    height: 45px;
+}
+
+.dropdown .dd {
+    height: 470px;
+    background-color: #fff;
+    margin-top: 2px;
+}
+
+.menu_item:hover {
+    background-color: #ccc;
+}
+
+
+/*鼠标经过li 里面的 a变颜色*/
+
+.menu_item a:hover {
+    color: #c81623;
+}
+
+.menu_item {
+    height: 26px;
+    line-height: 26px;
+    margin-left: 1px;
+    padding: 0 10px;
+    transition: all .5s;
+}
+
+.menu_item:hover {
+    padding-left: 20px;
+}
+
+.menu_item a {
+    font-size: 14px;
+    color: #636363;
+}
+
+.menu_item i {
+    float: right;
+    font-family: 'icomoon';
+    font-size: 18px;
+    color: #fff;
+}
+
+.main {
+    width: 990px;
+    height: 455px;
+    margin-left: 200px;
+    margin-top: 10px;
+}
+
+.focus {
+    position: relative;
+    width: 590px;
+    height: 470px;
+    background-color: purple;
+    overflow: hidden;
+}
+
+.carousel {
+    z-index: 1;
+    position: absolute;
+}
+
+li {
+    list-style: none;
+}
+
+.carousel li {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel li.active {
+    z-index: 4;
+}
+
+.shortFocus {
+    margin-left: 10px;
+    width: 190px;
+    height: 470px;
+}
+
+.shortFocus img {
+    width: 100%;
+    height: 100%;
+}
+
+.shortFocus .first {
+    width: 190px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.shortFocus .second {
+    width: 190px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.shortFocus .third {
+    width: 190px;
+    height: 150px;
+}
+
+.arrow-l,
+.arrow-r {
+    z-index: 5;
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    width: 24px;
+    height: 35px;
+    background: rgba(0, 0, 0, .3);
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    font-family: 'icomoon';
+    font-size: 18px;
+}
+
+.arrow-l {
+    left: 0;
+    text-align: left;
+    border-radius: 0 17px 17px 0;
+}
+
+.arrow-r {
+    right: 0;
+    border-radius: 17px 0 0 17px;
+}
+
+.circle {
+    z-index: 1;
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+}
+
+.circle li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    /*background-color: #fff;*/
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin: 0 3px;
+    border-radius: 50%;
+    /*鼠标经过显示小手*/
+    cursor: pointer;
+}
+
+.circle li.active {
+    background-color: #e3e4e5;
+    border-bottom: 1px solid #ddd;
+}
+
+.newsflash {
+    width: 190px;
+    height: 480px;
+}
+
+.user {
+    width: 190px;
+    height: 102px;
+    background-color: #fff;
+}
+
+.user .userHead {
+    width: 190px;
+    height: 62px;
+    box-sizing: border-box;
+    padding: 12px;
+}
+
+.user .userHead img {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user .userHead .userInfo {
+    float: left;
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+}
+
+.userLink {
+    height: 35px;
+    width: 190px;
+    /* background-color: pink; */
+    border-bottom: 1px solid #eee;
+}
+
+.userLink .userlink-btn1 {
+    float: left;
+    width: 70px;
+    height: 25px;
+    background-color: #e1251b;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 12px;
+    margin-left: 20px;
+}
+
+.userLink .userlink-btn1 a {
+    color: #fff;
+}
+
+.userLink .userlink-btn2 a {
+    color: #e5d790;
+}
+
+.userLink .userlink-btn2 {
+    float: right;
+    width: 70px;
+    height: 25px;
+    background-color: #363634;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 12px;
+    margin-right: 20px;
+}
+
+.news {
+    width: 190px;
+    height: 130px;
+    background-color: #fff;
+}
+
+.news-hd {
+    height: 30px;
+    /*dotted 点线  dashed  虚线*/
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+.news-hd a {
+    float: right;
+    font-size: 12px;
+    font-family: 'icomoon';
+}
+
+.news-bd {
+    padding: 0px 10px 0 15px;
+}
+
+.news-bd li {
+    height: 23px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.news-bd li span {
+    background-color: rgba(225, 37, 27, .08);
+    color: #e1251b;
+}
+
+.lifeservice {
+    overflow: hidden;
+    width: 190px;
+    height: 240px;
+    border-top: none;
+}
+
+.lifeservice img {
+    width: 100%;
+}
+
+
+/*推荐模块*/
+
+.recommend {
+    height: 163px;
+    margin-top: 10px;
+}
+
+.recom-hd {
+    width: 200px;
+    height: 163px;
+    background-color: #5c5251;
+    text-align: center;
+}
+
+.recom-hd img {
+    margin: 30px 0 10px 0;
+}
+
+.recom-hd h3 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: normal;
+}
+
+.recom-bd {
+    width: 1000px;
+    height: 163px;
+    background-color: #ebebeb;
+}
+
+.recom-bd li {
+    float: left;
+    width: 249px;
+    height: 145px;
+    border-right: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.recom-bd .last {
+    border-right: 0;
+}
+
+
+/*floor 楼层区*/
+
+.box-hd {
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+    margin-top: 25px;
+}
+
+.box-hd h3 {
+    float: left;
+    font-size: 18px;
+    color: #c81623;
+}
+
+.tab-list {
+    float: right;
+    line-height: 30px;
+}
+
+.tab-list li {
+    float: left;
+}
+
+.tab-list li a {
+    margin: 0 15px;
+}
+
+.box-bd {
+    height: 360px;
+}
+
+.w209 {
+    width: 209px;
+    background-color: #f9f9f9;
+}
+
+.w329 {
+    width: 329px;
+}
+
+.w219 {
+    width: 219px;
+    border-right: 1px solid #ccc;
+}
+
+.w220 {
+    width: 220px;
+    border-right: 1px solid #ccc;
+}
+
+.tab-con li {
+    float: left;
+    height: 360px;
+}
+
+.tab-con-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-con-list {
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.tab-con-list li {
+    width: 86px;
+    height: 32px;
+    line-height: 32px;
+    border-bottom: 1px solid #ccc;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.box-bd li {
+    overflow: hidden;
+}
+
+.box-bd img {
+    /*过渡写到本身上， 谁做动画，给谁加*/
+    transition: all .2s;
+}
+
+
+/*我们鼠标经过图片 往右走 8px*/
+
+.box-bd img:hover {
+    margin-left: 8px;
+}
+
+
+/*电梯导航*/
+
+.fixedtool {
+    position: fixed;
+    top: 420px;
+    right: 50%;
+    margin-right: -676px;
+    width: 58px;
+    background-color: #fff;
+}
+
+.fixedtool li {
+    height: 60px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.fixedtool .current {
+    background-color: #c81623;
+    color: #fff;
+}

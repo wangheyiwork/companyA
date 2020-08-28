@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>京东-欢迎登录</title>
+    <meta name="description" content="京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!" />
+    <meta name="Keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东" />
+    <link rel="shortcut icon" href="../resource/img/favicon.ico" type="image/x-icon" />
+    <!-- 初始化css -->
+    <link rel="stylesheet" href="../css/base.css">
+    <!-- register css文件 -->
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <div class="header">
+        <div class="w">
+            <a href="index.html">
+                <img src="../resource/img/logo2.png" alt="">
+            </a>
+            <span>欢迎登录</span>
+
+            <p><img src="../resource/img/q-icon.png" alt=""><a href="login.html">登录页面,调查问卷</a></p>
+
+        </div>
+
+    </div>
+    <div class="notice">
+        依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！ 新版
+        <a href="login.html">《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。
+    </div>
+    <!-- registerarea -->
+    <div class="loginarea">
+        <div class="w">
+            <div class="loginpanel">
+                <p class="smallnotice">
+                    <img src="../resource/img/icon-tips.png" alt=""> 京东不会以任何理由要求您转账汇款，谨防诈骗。
+                </p>
+                <div class="btn">
+                    <div class="btn1 ">扫码登录</div><span>|</span>
+                    <div class="btn2 active">账号登录</div>
+                </div>
+                <div class="code" style="display: none;"></div>
+                <div class="userInfo">
+                    <div class="errorMsg"><i>-</i> 账户名与密码不匹配，请重新输入</div>
+                    <div class="successMsg">
+                        <img src="../resource/img/loginsuccess.png" alt="">
+                        <h2>登录成功</h2>
+                    </div>
+
+                    <div class="firstInput"><span></span> <input class="username" type="text" placeholder="邮箱/用户名/登录手机"></div>
+                    <div class="secondInput"><span></span><input class="password" type="password" placeholder="密码"></div>
+                    <div class="forgetpwd">
+                        <a href="#">忘记密码</a>
+                    </div>
+                    <div class="loginbtn"> 登 录</div>
+                </div>
+
+                <div class="loginlink">
+
+                    <span></span><i>QQ</i> <i>|</i><span></span><i>微信</i>
+                    <em><u>&gt;</u><a style="color:#e4393c;" href="register.html">立即注册</a></em>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <p class="links">
+            关于我们 | 联系我们 | 联系客服 | 商家入驻 | 营销中心 | 手机京东. | 友情链接 | 销售联盟 | 京东.社区 | 京东.公益 | English Site | Contact U
+        </p>
+
+        <p class="copyright">
+            Copyright©2004-2020 京东JD.com 版权所有
+        </p>
+    </div>
+    </div>
+    <script>
+        $(function() {
+            //获取扫码登录按钮
+            var $codebtn = $(".btn1");
+            //获取账号登录按钮
+            var $numbtn = $(".btn2");
+            //获取相对应的面板
+            var $codePanel = $(".code");
+            var $inputPanel = $(".userInfo")
+
+            //获取用户名输入框
+            var $username = $(".username");
+            //获取密码输入框
+            var $password = $(".password");
+            //获取登录按钮
+            var $loginBtn = $(".loginbtn");
+
+
+            //账号登录面板隐藏，扫码面板显示
+            $codebtn.click(function() {
+                $codePanel.show();
+                $inputPanel.hide();
+                $(this).addClass("active");
+                $numbtn.removeClass("active");
+            });
+            //账号登录面板显示，扫码面板隐藏
+            $numbtn.click(function() {
+                $codePanel.hide();
+                $inputPanel.show();
+                $(this).addClass("active");
+                $codebtn.removeClass("active")
+            });
+            //点击登录按钮发送ajax请求检查用户名和密码是否正确
+            $loginBtn.click(function() {
+                $.post("/jingdongphp/login.php", {
+                    username: $username.val(),
+                    password: $password.val()
+                }, function(data) {
+                    if (!data.error) {
+                        // $(".errorMsg").hide();
+                        $(".successMsg").show();
+
+                        (function() {
+                            setInterval(function() {
+                                //并且跳转到首页
+                                window.location.href = "./index.html";
+                                $(".successMsg").hide();
+                            }, 1500)
+                        })();
+
+
+                    } else { //弹出错误信息
+                        $(".errorMsg").show();
+                    }
+                }, "json")
+            });
+
+
+
+
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>
