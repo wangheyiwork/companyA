@@ -1,0 +1,1 @@
+"use strict";function offset(f){var t=0,e=0;t=f.offsetLeft,e=f.offsetTop;var o=!1;for(-1!=window.navigator.userAgent.indexOf("MSIE 8")&&(o=!0),f=f.offsetParent;f!=document.body;)o?(t+=f.offsetLeft,e+=f.offsetTop):(t+=f.offsetLeft+f.clientLeft,e+=f.offsetTop+f.clientTop),f=f.offsetParent;return{left:t,top:e}}

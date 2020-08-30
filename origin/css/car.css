@@ -100,12 +100,27 @@
     float: left;
     border: 1px solid #ccc;
     padding: 5px;
+    height: 128px;
+}
+
+.p-img img {
+    height: 132px;
 }
 
 .p-msg {
     float: left;
     width: 210px;
     margin: 0 10px;
+}
+
+.p-msg a {
+    color: #666;
+}
+
+.p-msg a:hover {
+    color: #666;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .p-price {
@@ -134,6 +149,7 @@
     margin: 0;
     background: #fff;
     margin-left: -1px;
+    cursor: pointer;
 }
 
 .itxt {
@@ -192,6 +208,7 @@
 .clear-all {
     font-weight: 700;
     margin: 0 20px;
+    cursor: pointer;
 }
 
 .toolbar-right {
@@ -230,4 +247,12 @@
     font-family: "Microsoft YaHei";
     background: #e54346;
     overflow: hidden;
+}
+
+.remove-batch {
+    cursor: pointer;
+}
+
+.cancel {
+    cursor: pointer;
 }

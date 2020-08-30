@@ -311,6 +311,15 @@ li {
     background-color: #ebebeb;
 }
 
+.recom-bd img:nth-of-type(1) {
+    margin-left: 11px;
+}
+
+.recom-bd img {
+    width: 230px;
+    height: 143px;
+}
+
 .recom-bd li {
     float: left;
     width: 249px;

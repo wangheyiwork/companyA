@@ -38,10 +38,10 @@
 
                     </li>
                     <li class="spacer"></li>
-                    <li><a href="#">我的订单</a></li>
+                    <li><a href="./car.html">我的购物车</a></li>
                     <li class="spacer"></li>
                     <li>
-                        <a href="#">我的京东</a>
+                        <a href="./index.html">我的京东</a>
                         <i class="icomoon"></i>
                     </li>
                     <li class="spacer"></li>
@@ -313,7 +313,7 @@
             var $search_goods = $("#search_goods");
 
 
-
+            //其他页面传过来的搜索内容进行处理
             var getSearchName = function(key) {
 
                 var querystring = decodeURIComponent(location.search).slice(1);
@@ -328,15 +328,24 @@
                 }
             }
 
+            //该数组存储数据库中所有商品
             var allgoodsarr = [];
+            //发送ajax请求向服务器拿到所有商品信息并赋值给该数组
+            $.post("/jingdongphp/sumgoods.php", {}, function(data) {
+                if (!data.error) {
+                    allgoodsarr = data.data;
+                } else { //弹出错误信息
+                    console.log("没有拿到数据");
+                }
+            }, "json");
 
+            //点击搜索按钮时，向服务器发送请求查询有没相关该商品信息并且渲染
             $searchBtn.click(function() {
                 $search_goods.empty();
                 $.get("/jingdongphp/allgoodsinfo.php", {
                     searchname: $searchMsg.val()
                 }, function(data) {
                     if (!data.error) {
-                        allgoodsarr = data.data;
                         // console.log(allgoodsarr);
                         var p = new Pagination($search_goods[0], data.data, 0, 12);
                         //arr为当前页的数据
@@ -358,7 +367,7 @@
                         </div>
                         剩余<em>${value.goods_number}</em>件
                     </div>
-                    <a href="#" class="sk_goods_buy data-id=${value.goods_id}">加入购物车</a>
+                    <a class="sk_goods_buy" data-id=${value.goods_id}>加入购物车</a>
 
                 </li>
                    `;
@@ -366,6 +375,38 @@
                             str += `</ul>`;
                             return str;
                         });
+                        //-------------加入购物车-----------------
+                        //点击加入购物车按钮，向本地存储存入该商品信息
+                        $(".sk_goods").click(function(e) {
+                            if (e.target.className == "sk_goods_buy") {
+                                var goodID = e.target.getAttribute("data-id");
+                                var goodsInfo = allgoodsarr.find(function(value) {
+                                    return value.goods_id == goodID;
+                                })
+                                console.log(goodID);
+
+                                //刚开始拿到的是以前的记录开始累加，或者是新数组
+                                var shopCartRecordstring = localStorage.getItem("shppingcart") || "[]";
+
+
+                                //把新的字符串转为数组
+                                var shopCartRecordarr = JSON.parse(shopCartRecordstring);
+
+                                var existRecord = shopCartRecordarr.find(function(value) {
+                                    return value.goods_id == goodID;
+                                })
+                                if (existRecord) {
+                                    existRecord.count++;
+                                } else {
+                                    goodsInfo.count = 1;
+                                    shopCartRecordarr.push(goodsInfo);
+                                }
+                                console.log(shopCartRecordarr.length);
+                                localStorage.setItem("shppingcart", JSON.stringify(shopCartRecordarr));
+                                location.href = "./car.html";
+                            }
+
+                        })
 
                     } else {
                         console.log("没有拿到数据");
@@ -379,6 +420,8 @@
                 $searchMsg.val(getSearchName("searchMsg"));
                 $searchBtn.click();
             }
+
+
 
 
 
